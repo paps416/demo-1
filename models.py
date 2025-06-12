@@ -4,6 +4,16 @@ from sklearn.metrics import accuracy_score, f1_score
 import joblib
 
 def train_tfidf_classifier(texts, labels):
+    """
+    обучение логистической регрессии
+
+    Args:
+        texts (list):  список предварительно обработанных текстовых документов
+        labels (list):  соответствующие метки для документо
+
+    Returns:
+        tuple: кортеж содержащий обученную модель и векторизатор TF-IDF
+    """
     
     print("обучаем модель на основе TF-IDF")
     
@@ -21,6 +31,16 @@ def train_tfidf_classifier(texts, labels):
     return model, vectorizer
 
 def train_bow_classifier(texts, labels):
+    """
+    обучение логистической регрессии
+
+    Args:
+        texts (list):  список предварительно обработанных текстовых документов
+        labels (list):  соответствующие метки для документов
+
+    Returns:
+        tuple: кортеж содержащий обученную модель и векторизатор Count
+    """
 
     print("обучаем модель на основе bow")
     
@@ -38,6 +58,18 @@ def train_bow_classifier(texts, labels):
     return model, vectorizer
 
 def evaluate_model(model, vectorizer, texts, labels):
+    """
+    оценивает производительность обученной модели
+
+    Args:
+        model: обученный классификатор
+        vectorizer: используемый vectorizer
+        texts (list):  список предварительно обработанных текстовых документов
+        labels (list):  соответствующие метки для документов
+
+    Returns:
+        tuple: кортеж содержащий точность и оценку F1
+    """
     X_test = vectorizer.transform(texts)
     predictions = model.predict(X_test)
     

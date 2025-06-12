@@ -1,10 +1,20 @@
 import spacy
-# import emoji # extra
+import emoji # extra
 
 def normalize_text(text):
+    """
+    выполняет нормализацию текста (перевод в нижний регистр + лемматизацию + удаление
+    стоп-слов + знаков препинания и пробелов
+
+    Args:
+        text (str): обычная входная строка
+
+    Returns:
+        str: очищенная строка
+    """
     
     # emoji to text
-    # text = emoji.demojize(text, language='alias')
+    text = emoji.demojize(text, language='alias')
     
     # spacy load
     try:

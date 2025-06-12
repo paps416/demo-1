@@ -1,9 +1,18 @@
 from datasets import load_dataset
 
 def load_imdb_data(train_samples=2000, test_samples=500):
-    # (train_texts, train_labels), (test_texts, test_labels)
+    """
+    загружает и подготавливает датасет
+
+    Args:
+        train_samples (int): кол во train samples
+        test_samples (int): кол во test samples
+
+    Returns:
+        ((train_texts, train_labels), (test_texts, test_labels)).
+    """
     
-    print("IMBD дата сет загружается", train_samples)
+    print("IMBD дата сет загружается")
     
     imdb_dataset = load_dataset("imdb")
     
